@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo Hello your username is $USER
+echo You are running on `hostname`
+echo The current date is `date`

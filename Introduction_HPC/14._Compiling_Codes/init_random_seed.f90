@@ -1,0 +1,18 @@
+SUBROUTINE init_random_seed()
+    INTEGER :: i, n, clock
+    INTEGER, DIMENSION(:), ALLOCATABLE :: seed
+  
+    CALL RANDOM_SEED(size = n)
+    ALLOCATE(seed(n))
+  
+    CALL SYSTEM_CLOCK(COUNT=clock)
+  
+    seed = clock + 37 * (/ (i - 1, i = 1, n) /)
+    CALL RANDOM_SEED(PUT = seed)
+  
+    print *, "Using random seed = ", seed
+    print *, " "
+
+    DEALLOCATE(seed)
+END SUBROUTINE
+
