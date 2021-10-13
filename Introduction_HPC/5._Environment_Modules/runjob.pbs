@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#PBS -l nodes=1:ppn=1,walltime=00:30:00
+#PBS -q standby
+
+
+#PBS -M gufranco@mail.wvu.edu
+#PBS -m abe
+#PBS -N FFTW3
+#PBS -j oe
+##PBS -t 1-9
+#PBS -l prologue=/users/gufranco/workshops_hands-on/Introduction_HPC/5._Environment_Modules/prologue.sh
+#PBS -l epilogue=/users/gufranco/workshops_hands-on/Introduction_HPC/5._Environment_Modules/epilogue.sh
+
+
+module load lang/gcc/8.2.0 libs/fftw/3.3.9_gcc82
+
+cd $PBS_O_WORKDIR
+
+#./a.out
+
+echo ${PBS_ARRAYID}
+
+
+
